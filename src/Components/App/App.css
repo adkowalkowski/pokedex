@@ -1,0 +1,14 @@
+.App {
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+}
+
+.pokeNames {
+  grid-column: 1/2;
+}
+
+.singlePokemon {
+  grid-column: 2/3;
+}
+
+
