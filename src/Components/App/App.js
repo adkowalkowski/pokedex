@@ -12,12 +12,20 @@ function App() {
   const [myPokemonTeam, setMyPokemonTeam] = useState([]);
   
   const handleAddPokemonTeam = (name, image) => {
-    const addToTeam = [...myPokemonTeam]
-    addToTeam.push({name, image});
-    setMyPokemonTeam(addToTeam);
+    if (myPokemonTeam.length < 6) {
+      const addToTeam = [...myPokemonTeam]
+      addToTeam.push({name, image});
+      setMyPokemonTeam(addToTeam);
+    } else
+    console.log("Team is full");
   }
-  console.log(myPokemonTeam);
 
+  const removeTeam = (object) => {
+    const newTeam = [...myPokemonTeam]
+    let filteredTeam = newTeam.filter((item) => item !== object);
+    // console.log(name);
+    setMyPokemonTeam(filteredTeam);
+  }
 
   return (
     <div className="App">
@@ -33,7 +41,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<AllPokeMon handleAddPokemonTeam={handleAddPokemonTeam}/>} />
-          <Route path='/team' element={<MyTeam myPokemonTeam={myPokemonTeam}/>} />
+          <Route path='/team' element={<MyTeam myPokemonTeam={myPokemonTeam} removeTeam={removeTeam}/>} />
         </Routes>
       </main>
     </div>

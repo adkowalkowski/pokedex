@@ -26,7 +26,7 @@ function SinglePokemon(props) {
         <h3>{singlePokemon.name}</h3>
         <p>Height: {singlePokemon.height} </p>
         <p>Weight: {singlePokemon.weight} </p>
-        <button onClick={()=>props.handleAddPokemonTeam(singlePokemon.name, singlePokemon.sprites.front_shiny)}>Add to team</button>
+        <button onClick={()=>props.handleAddPokemonTeam(singlePokemon.name, singlePokemon.sprites.front_default)}>Add to team</button>
       </div>
     );
   }
